@@ -28,8 +28,8 @@ const jeopardyQuestions = [{
 
 
 const htmlBtnA = document.getElementById('htmlBtnA');
-const queDisplay = document.getElementById('queDisplay');
-const ansDisplay = document.getElementById('displayAnswer')
+const queDisplay = document.querySelector('.queDisplay');
+const ansDisplay = document.querySelector('.displayAnswer')
 const ansBtnDisplay = document.getElementById('ansBtnDisplay')
 const backDisplay = document.getElementById('backBtnDisplay')
 console.log(ansDisplay);
@@ -53,15 +53,27 @@ htmlBtnA.addEventListener('click', () => {
     queDisplay.textContent = htmlQueA;
     ansBtnDisplay.appendChild(ansBtn);
     backDisplay.appendChild(backBtn)
-    htmlBtnA.diabled = true
-    htmlBtnA.style.backgroundColor = 'red'
+    htmlBtnA.disabled = true
+    //htmlBtnA.style.backgroundColor = 'red'
 })
 
 ansBtn.addEventListener('click', () => {
-    //jeopardyQuestions[0].rightAnswer
-    ansDisplay.textContent = jeopardyQuestions[0].rightAnswer;
+    let htmlAnsA = jeopardyQuestions[0].rightAnswer
+    ansDisplay.textContent = htmlAnsA;
 
 })
+
+backBtn.addEventListener('click', () => {
+    queDisplay.style.visibility = "hidden"
+    ansDisplay.style.visibility = "hidden"
+    backDisplay.style.visibility = "hidden"
+    ansBtnDisplay.style.visibility = "hidden"
+});
+
+    
+    
+  
+
 
 
 
