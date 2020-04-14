@@ -7,10 +7,50 @@
 
 }
 
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.displaing-divs {
+    margin-left: 20px;
+}
+
 .optionsA {
-    color: red;
+    font-size: 20px;
+    margin: 5px;
+    cursor: pointer;
 
 }
+
+.score1 {
+    font-size: 25px;
+}
+
+span {
+    color: green;
+}
+
+button #catagory {
+    color: purple;
+}
+
+button {
+    background-color: darkblue;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    padding: 10px 20px;
+    width: 100px;
+    height:80px;
+}
+
+button:hover {
+    background-color: violet;
+}
+
+
 
 .displayAnswer {
     font-size: 20px;
