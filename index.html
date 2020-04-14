@@ -9,79 +9,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 </head>
 
-    <body>
+<body>
+    <div>
         <div>
-            <div>
-                <h1 class="title" id="title">Jeopardy</h1>
-            </div>
-            <div>
-                <p>Score: $<span class="score1">0</span></p>
-            </div>
+            <h1 class="title" id="title">Jeopardy</h1>
         </div>
-
+        <div>
+            <p class="score1">Score: $ <span class="score1">0</span></p>
+        </div>
+    </div>
+    <audio src=""></audio>
 
     <div class="wrapper">
-        <table>
-            <tr>
-                <td class="catagories">HTML</td>
-                <td class="catagories">CSS</td>
-                <td class="catagories">JS</td>
-                <td class="catagories">CL</td>
-            </tr>
-            <tr>
-                <td id="htmlBtnA">$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-            </tr>
-            <tr>
-                <td id="htmlBtnB">$200</td>
-                <td>$200</td>
-                <td>$200</td>
-                <td>$200</td>
-            </tr>
-            <tr>
-                <td>$300</td>
-                <td>$300</td>
-                <td>$300</td>
-                <td>$300</td>
-            </tr>
-            <tr>
-                <td>$400</td>
-                <td>$400</td>
-                <td>$400</td>
-                <td>$400</td>
-            </tr>
-        </table>
 
-
-        
-         
-         <!-- <button class="htmlBtnA" id="htmlBtnA">$100</button> 
-         <br>
-         <button class="htmlBtnB" id="htmlBtnB"></button>  -->
-    <!-- <div class="display-container"> -->
-         <div class="queDisplay">
-             <h1></h1>
-        </div>
-        <div class="multiple-choice">
-            <h1></h1>
-        </div>
-
-        <div class="displayAnswer">
-            <h1></h1> 
+        <div>
+            <button id="catagory">HTML</button>
+            <button id="catagory">CSS.</button>
+            <button id="catagory">JScr</button>
+            <button id="catagory">CLine</button>
+            <br>
+            <button class="button" id="htmlBtnA">$ 100</button>
+            <button class="button" id="cssBtnA">$ 100</button>
+            <button class="button" id="jsBtnA">$ 100</button>
+            <button class="button" id="clBtnA">$ 100</button>
+            <br>
+            <button class="button" id="htmlBtnB">$200--</button>
+            <button class="button" id="cssBtnB">$200</button>
+            <button class="button" id="jsBtnB">$200</button>
+            <button class="button" id="clBtnB">$200</button>
+            <br>
+            <button class="button" id="htmlBtnC">$300</button>
+            <button class="button" id="cssBtnC">$300</button>
+            <button class="button" id="jsBtnC">$300</button>
+            <button class="button" id="clBtnC">$300</button>
+            <br>
+            <button class="button" id="htmlBtnD">$400</button>
+            <button class="button" id="cssBtnD">$400</button>
+            <button class="button" id="jsBtnD">$400</button>
+            <button class="button" id="clBtnD">$400</button>
         </div>
         
-         <!-- </div> -->
+        <div class="displaing-divs">
+            <div class="queDisplay">
+                <h1></h1>
+            </div>
+            <div class="multiple-choice">
+                <h1></h1>
+            </div>
 
-         <!-- <div id="ansBtnDisplay"></div> -->
-         <div id="backBtnDisplay"></div>
-    </div> 
-
-                
+            <div class="displayAnswer">
+                <h1></h1>
+            </div>
 
 
-        <script src="main.js"></script>
-    </body>
+
+            <!-- <div id="ansBtnDisplay"></div> -->
+            <div id="backBtnDisplay"></div>
+        </div>
+
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
 
 </html>
