@@ -1,7 +1,7 @@
 const jeopardyQuestions = [{
     questions: 'What is HTML stands for?',
     options: [ 'Hyper Text Markup Language', 'Holding Text Marker Language', 'Hyperlink Text Management Language', 'Holding Text Modal Language'],
-    theRightAnswer: 'HyperText Markup Language',
+    theRightAnswer: 'Hyper Text Markup Language',
     prize: 100
 },
 {
@@ -64,10 +64,8 @@ const jeopardyQuestions = [{
 },
 
 ];
-const myArray = [['abc', 'efg', 'rde']
-['asd', 'jbj', 'hgf']
-];
 
+let score = 0;
 
 //const htmlBtnA = document.getElementById('htmlBtnA');
 const queDisplay = document.querySelector('.queDisplay');
@@ -77,6 +75,7 @@ const backDisplay = document.getElementById('backBtnDisplay')
 const htmlBtnA = document.getElementById('htmlBtnA');
 const htmlBtnB = document.getElementById('htmlBtnB');
 const choices = document.querySelector('.multiple-choice')
+const score1 = document.querySelector('span')
 console.log(ansDisplay);
 
 //*****creating the Answer button******
@@ -97,32 +96,44 @@ htmlBtnA.addEventListener('click', () => {
     let htmlQueA = jeopardyQuestions[0].questions
     queDisplay.textContent = htmlQueA;
     for(let i = 0; i < jeopardyQuestions[0].options.length; i++){
-    let htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
-    let mulChoiAdiv = document.createElement('div')
-    mulChoiAdiv.classList = 'optionA'
-    choices.innerHTML = htmlChoicesA 
+  //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
+    let div = document.createElement('div')
+    div.classList = 'optionsA'
+    div.innerHTML = jeopardyQuestions[0].options[i]
+    choices.appendChild(div);
+    div.addEventListener('click', () => {
+        if(jeopardyQuestions[0].options[i] === jeopardyQuestions[0].theRightAnswer){
+            score += jeopardyQuestions[0].prize
+            score1.innerHTML = score
+            return score
+        }
+        else {
+            alert('wrong Answer')
+            //add wrong answer button
+            // score -= jeopardyQuestions[0].prize
+            // score1.innerHTML = score
+            // return score
+        }
+    })
     };
-    //queDisplay.style.border = 'solid 1px black'
-    //queDisplay.style.borderRadius = '10px'
-    
     ansBtnDisplay.appendChild(ansBtn);
     backDisplay.appendChild(backBtn)
     htmlBtnA.style.backgroundColor = 'lightgray'
     htmlBtnA.disabled = true
-    
 });
 
-ansBtn.addEventListener('click', () => {
-    let htmlAnsA = jeopardyQuestions[0].theRightAnswer
-    ansDisplay.textContent = htmlAnsA;
 
-})
+
+
+
+
 //Back botton functionalities
 backBtn.addEventListener('click', () => {
     queDisplay.style.visibility = "hidden"
     ansDisplay.style.visibility = "hidden"
     backDisplay.style.visibility = "hidden"
     ansBtnDisplay.style.visibility = "hidden"
+    choices.style.visibility = "hidden"
 });
 
 //answer btn for html $200 and functionalities
@@ -136,6 +147,7 @@ htmlBtnB.addEventListener('click', () => {
     queDisplay.style.visibility = "visible"
     ansDisplay.style.visibility = "visible"
     backDisplay.style.visibility = "visible"
+    //choices.style.visibility = "visible"
     //ansBtnDisplay.style.visibility = "visible"
     htmlBtnB.disabled = true
 })
