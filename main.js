@@ -1,32 +1,37 @@
 const jeopardyQuestions = [{
     questions: 'What is HTML stands for?',
-    options: [ 'Hyper Text Markup Language', 'Holding Text Marker Language', 'Hyperlink Text Management Language', 'Holding Text Modal Language'],
+    options: ['Hyper Text Markup Language', 'Holding Text Marker Language', 'Hyperlink Text Management Language', 'Holding Text Modal Language'],
     theRightAnswer: 'Hyper Text Markup Language',
     prize: 100
 },
 {
     questions: 'What is the current version of HTML?',
+    options: ['HTMLv5.1', 'HTML5', 'HTML2016', 'HTMLC'],
     theRightAnswer: 'HTML5',
     prize: 200
 },
 {
-    questions: 'What new element type introduced in HTML5 is functionally the same as a Div?',
-    theRightAnswer: 'Semantic Tags',
+    questions: 'What seperate language has largely replaced use of <style></style> elements?',
+    options: ['HTMLS Code', 'Style Sheet Language', 'CSS or Central Style Sheet', 'CSS or Cascading Style Sheets'],
+    theRightAnswer: 'CSS or Cascading Style Sheets',
     prize: 300
 },
 {
-    questions: 'Name two new tags included in the HTML 5',
-    theRightAnswer: 'Video and Audio',
+    questions: 'What new element type introduced in HTML5 is functionally the same as a Div?',
+    options: ['Semantic Tags', 'PseudoDivs', 'DivisionIDs', 'Division Notation'],
+    theRightAnswer: 'Semantic Tags',
     prize: 400
 },
 {
     questions: 'What is the expansion of CSS?',
+    options: ['Cascading Style Sheets', 'Central Style Server', 'Control Set Styles', 'C Safe Server'],
     theRightAnswer: 'Cascading Style Sheets',
     prize: 100
 },
 
 {
     questions: 'The * selector applies to what?',
+    options: ['Everything', 'Wildcard elements', 'Multiplication Functions', 'Elements with the Id of *'],
     theRightAnswer: 'Everything',
     prize: 200
 },
@@ -90,86 +95,109 @@ let backBtn = document.createElement('button');
 backBtn.classList = 'backBtn';
 let backNode = document.createTextNode('Back');
 backBtn.appendChild(backNode);
+backBtn.style.backgroundColor = 'purple'
+backBtn.style.height = '35px'
+backBtn.style.fontSize = '15px'
 console.log(backBtn);
 // The event listener for the first question
 htmlBtnA.addEventListener('click', () => {
     let htmlQueA = jeopardyQuestions[0].questions
     queDisplay.textContent = htmlQueA;
-    for(let i = 0; i < jeopardyQuestions[0].options.length; i++){
-  //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
-    let div = document.createElement('div')
-    div.classList = 'optionsA'
-    div.innerHTML = jeopardyQuestions[0].options[i]
-    choices.appendChild(div);
-    div.addEventListener('click', () => {
-        if(jeopardyQuestions[0].options[i] === jeopardyQuestions[0].theRightAnswer){
-            score += jeopardyQuestions[0].prize
-            score1.innerHTML = score
-            return score
-        }
-        else {
-            alert('wrong Answer')
-            //add wrong answer button
-            // score -= jeopardyQuestions[0].prize
-            // score1.innerHTML = score
-            // return score
-        }
-    })
+    for (let i = 0; i < jeopardyQuestions[0].options.length; i++) {
+        //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
+        let htmlMultChoA = document.createElement('div')
+        htmlMultChoA.classList = 'optionsA'
+        htmlMultChoA.innerHTML = jeopardyQuestions[0].options[i]
+        choices.appendChild(htmlMultChoA);
+        //ansBtnDisplay.appendChild(ansBtn);
+        backDisplay.appendChild(backBtn)
+        htmlBtnA.style.backgroundColor = 'lightgray'
+        htmlBtnA.disabled = true
+        htmlMultChoA.addEventListener('click', () => {
+            if (jeopardyQuestions[0].options[i] === jeopardyQuestions[0].theRightAnswer) {
+                const audio = new Audio('audio/correct-answer.mp3');
+                audio.play();
+                score += jeopardyQuestions[0].prize
+                score1.innerHTML = score
+                return score
+            }
+            else {
+                const audio = new Audio('audio/wrong-answer.mp3');
+                audio.play();
+                //add wrong answer button
+                score -= jeopardyQuestions[0].prize
+                score1.innerHTML = score
+                //return score 
+            }
+        })
     };
-    ansBtnDisplay.appendChild(ansBtn);
-    backDisplay.appendChild(backBtn)
-    htmlBtnA.style.backgroundColor = 'lightgray'
-    htmlBtnA.disabled = true
+
 });
-
-
-
-
-
 
 //Back botton functionalities
 backBtn.addEventListener('click', () => {
     queDisplay.style.visibility = "hidden"
     ansDisplay.style.visibility = "hidden"
     backDisplay.style.visibility = "hidden"
-    ansBtnDisplay.style.visibility = "hidden"
     choices.style.visibility = "hidden"
 });
 
-//answer btn for html $200 and functionalities
+
+
+
+
+
+
+
+
+
+
+console.log('htmlBtnB', htmlBtnB);
 htmlBtnB.addEventListener('click', () => {
+    console.log('htmlBtnB clicked')
     let htmlQueB = jeopardyQuestions[1].questions
-    queDisplay.style.border = 'solid 1px black'
-    queDisplay.style.borderRadius = '10px'
     queDisplay.textContent = htmlQueB;
-    ansBtnDisplay.appendChild(ansBtnB);
-    backDisplay.appendChild(backBtn)
-    queDisplay.style.visibility = "visible"
-    ansDisplay.style.visibility = "visible"
-    backDisplay.style.visibility = "visible"
-    //choices.style.visibility = "visible"
-    //ansBtnDisplay.style.visibility = "visible"
-    htmlBtnB.disabled = true
-})
-let ansBtnB = document.createElement('button')
-ansBtnB.classList = 'ansButtonB';
-let ansNodeHtmlB = document.createTextNode('Answer')
-ansBtnB.appendChild(ansNodeHtmlB);
-ansBtnB.addEventListener('click', () => {
-    let htmlAnsB = jeopardyQuestions[1].theRightAnswer
-    ansDisplay.textContent = htmlAnsB
-})
+    for (let i = 0; i < jeopardyQuestions[1].options.length; i++) {
+        //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
+        let htmlMultChoB = document.createElement('div')
+        htmlMultChoB.classList = 'optionsA'
+        htmlMultChoB.innerHTML = jeopardyQuestions[1].options[i]
+        choices.appendChild(htmlMultChoB);
+        console.log(`${jeopardyQuestions[1].options[i]}`)
+        //ansBtnDisplay.appendChild(ansBtn);
+        backDisplay.appendChild(backBtn)
+        htmlBtnB.style.backgroundColor = 'lightgray'
+        queDisplay.style.visibility = "visible"
+        backDisplay.style.visibility = "visible"
+        choices.style.visibility = "visible"
+        htmlBtnB.disabled = true
+        htmlMultChoB.addEventListener('click', () => {
+            if (jeopardyQuestions[1].options[i] === jeopardyQuestions[1].theRightAnswer) {
+                const audio = new Audio('audio/correct-answer.mp3');
+                audio.play();
+                score += jeopardyQuestions[1].prize
+                score1.innerHTML = score
+                return score
+            }
+            else {
+                const audio = new Audio('audio/wrong-answer.mp3');
+                audio.play();
+                //add wrong answer button
+                score -= jeopardyQuestions[1].prize
+                score1.innerHTML = score
+                //return score 
+            }
+        })
+    };
 
-let box = document.createElement('div');
-let htmlPrizeA = document.createTextNode('$200')
-box.classList = 'boxesB'
-box.appendChild(htmlPrizeA)
-htmlBtnB.appendChild(box);
-htmlBtnB.style.padding = '5px'
-htmlBtnB.style.margin = '10px 0 10px 0'
-htmlBtnB.style.borderRadius = '5px'
+});
+queDisplay.style.visibility = "visible"
+backDisplay.style.visibility = "visible"
+choices.style.visibility = "visible"
 
-console.log(box)
+
+
+
 
 
 
