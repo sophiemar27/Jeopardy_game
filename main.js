@@ -101,6 +101,7 @@ backBtn.style.fontSize = '15px'
 console.log(backBtn);
 // The event listener for the first question
 htmlBtnA.addEventListener('click', () => {
+    choices.innerHTML = ''
     let htmlQueA = jeopardyQuestions[0].questions
     queDisplay.textContent = htmlQueA;
     for (let i = 0; i < jeopardyQuestions[0].options.length; i++) {
@@ -112,6 +113,9 @@ htmlBtnA.addEventListener('click', () => {
         //ansBtnDisplay.appendChild(ansBtn);
         backDisplay.appendChild(backBtn)
         htmlBtnA.style.backgroundColor = 'lightgray'
+        queDisplay.style.visibility = "visible"
+        backDisplay.style.visibility = "visible"
+        choices.style.visibility = "visible"
         htmlBtnA.disabled = true
         htmlMultChoA.addEventListener('click', () => {
             if (jeopardyQuestions[0].options[i] === jeopardyQuestions[0].theRightAnswer) {
@@ -143,17 +147,9 @@ backBtn.addEventListener('click', () => {
 });
 
 
-
-
-
-
-
-
-
-
-
 console.log('htmlBtnB', htmlBtnB);
 htmlBtnB.addEventListener('click', () => {
+    choices.innerHTML = ''
     console.log('htmlBtnB clicked')
     let htmlQueB = jeopardyQuestions[1].questions
     queDisplay.textContent = htmlQueB;
