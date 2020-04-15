@@ -22,6 +22,7 @@ const jeopardyQuestions = [{
     theRightAnswer: 'Semantic Tags',
     prize: 400
 },
+// css section
 {
     questions: 'What is the expansion of CSS?',
     options: ['Cascading Style Sheets', 'Central Style Server', 'Control Set Styles', 'C Safe Server'],
@@ -58,7 +59,7 @@ const jeopardyQuestions = [{
 {
     questions: 'JSON is: ',
     options: ['A Javascript engine', 'A text format readable by Javascript', 'A Javascript library', 'A Javascript function'],
-    therightAnswer: 'A text format readable by Javascript',
+    theRightAnswer: 'A text format readable by Javascript',
     prize: 200
 },
 {
@@ -105,7 +106,6 @@ const jeopardyQuestions = [{
 ];
 
 let score = 0;
-let finalScore = 0
 
 //const htmlBtnA = document.getElementById('htmlBtnA');
 const queDisplay = document.querySelector('.queDisplay');
@@ -121,6 +121,10 @@ const cssBtnB = document.getElementById('cssBtnB')
 const cssBtnC = document.getElementById('cssBtnC')
 const cssBtnD = document.getElementById('cssBtnD')
 const jsBtnA = document.getElementById('jsBtnA')
+const jsBtnB = document.getElementById('jsBtnB');
+const jsBtnC = document.getElementById('jsBtnC');
+const jsBtnD = document.getElementById('jsBtnD')
+const clBtnA = document.getElementById('clBtnA');
 const choices = document.querySelector('.multiple-choice')
 const score1 = document.querySelector('span')
 console.log(ansDisplay);
@@ -448,27 +452,27 @@ cssBtnD.addEventListener('click', () => {
     };
 });
 
-cssBtnD.addEventListener('click', () => {
+jsBtnA.addEventListener('click', () => {
     choices.innerHTML = ''
-    let cssQueD = jeopardyQuestions[7].questions
-    queDisplay.textContent = cssQueD;
-    for (let i = 0; i < jeopardyQuestions[7].options.length; i++) {
+    let jsQueA = jeopardyQuestions[8].questions
+    queDisplay.textContent = jsQueA;
+    for (let i = 0; i < jeopardyQuestions[8].options.length; i++) {
         //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
-        let cssMultChoD = document.createElement('div')
-        cssMultChoD.classList = 'optionsA'
-        cssMultChoD.innerHTML = jeopardyQuestions[7].options[i]
-        choices.appendChild(cssMultChoD);
+        let jsMultChoA = document.createElement('div')
+        jsMultChoA.classList = 'optionsA'
+        jsMultChoA.innerHTML = jeopardyQuestions[8].options[i]
+        choices.appendChild( jsMultChoA);
         backDisplay.appendChild(backBtn)
-        cssBtnD.style.backgroundColor = 'lightgray'
+        jsBtnA.style.backgroundColor = 'lightgray'
         queDisplay.style.visibility = "visible"
         backDisplay.style.visibility = "visible"
         choices.style.visibility = "visible"
-        cssBtnD.disabled = true
-        cssMultChoD.addEventListener('click', () => {
-            if (jeopardyQuestions[7].options[i] === jeopardyQuestions[7].theRightAnswer) {
+        jsBtnA.disabled = true
+        jsMultChoA.addEventListener('click', () => {
+            if (jeopardyQuestions[8].options[i] === jeopardyQuestions[8].theRightAnswer) {
                 const audio = new Audio('audio/correct-answer.mp3');
                 audio.play();
-                score += jeopardyQuestions[7].prize
+                score += jeopardyQuestions[8].prize
                 score1.innerHTML = score
                 return score
             }
@@ -476,7 +480,7 @@ cssBtnD.addEventListener('click', () => {
                 const audio = new Audio('audio/wrong-answer.mp3');
                 audio.play();
                 //add wrong answer button
-                score -= jeopardyQuestions[7].prize
+                score -= jeopardyQuestions[8].prize
                 score1.innerHTML = score
                 //return score 
             }
@@ -484,6 +488,149 @@ cssBtnD.addEventListener('click', () => {
     };
 });
 
+jsBtnB.addEventListener('click', () => {
+    choices.innerHTML = ''
+    let jsQueB = jeopardyQuestions[9].questions
+    queDisplay.textContent = jsQueB;
+    for (let i = 0; i < jeopardyQuestions[9].options.length; i++) {
+        //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
+        let jsMultChoB = document.createElement('div')
+        jsMultChoB.classList = 'optionsA'
+        jsMultChoB.innerHTML = jeopardyQuestions[9].options[i]
+        choices.appendChild( jsMultChoB);
+        backDisplay.appendChild(backBtn)
+        jsBtnB.style.backgroundColor = 'lightgray'
+        queDisplay.style.visibility = "visible"
+        backDisplay.style.visibility = "visible"
+        choices.style.visibility = "visible"
+        jsBtnB.disabled = true
+        jsMultChoB.addEventListener('click', () => {
+            if (jeopardyQuestions[9].options[i] === 'A text format readable by Javascript') {
+                const audio = new Audio('audio/correct-answer.mp3');
+                audio.play();
+                score += jeopardyQuestions[9].prize
+                score1.innerHTML = score
+                return score
+            }
+            else {
+                const audio = new Audio('audio/wrong-answer.mp3');
+                audio.play();
+                //add wrong answer button
+                score -= jeopardyQuestions[9].prize
+                score1.innerHTML = score
+                //return score 
+            }
+        })
+    };
+});
+
+jsBtnC.addEventListener('click', () => {
+    choices.innerHTML = ''
+    let jsQueC = jeopardyQuestions[10].questions
+    queDisplay.textContent = jsQueC;
+    for (let i = 0; i < jeopardyQuestions[10].options.length; i++) {
+        //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
+        let jsMultChoC = document.createElement('div')
+        jsMultChoC.classList = 'optionsA'
+        jsMultChoC.innerHTML = jeopardyQuestions[10].options[i]
+        choices.appendChild( jsMultChoC);
+        backDisplay.appendChild(backBtn)
+        jsBtnC.style.backgroundColor = 'lightgray'
+        queDisplay.style.visibility = "visible"
+        backDisplay.style.visibility = "visible"
+        choices.style.visibility = "visible"
+        jsBtnC.disabled = true
+        jsMultChoC.addEventListener('click', () => {
+            if (jeopardyQuestions[10].options[i] === jeopardyQuestions[10].theRightAnswer) {
+                const audio = new Audio('audio/correct-answer.mp3');
+                audio.play();
+                score += jeopardyQuestions[10].prize
+                score1.innerHTML = score
+                return score
+            }
+            else {
+                const audio = new Audio('audio/wrong-answer.mp3');
+                audio.play();
+                //add wrong answer button
+                score -= jeopardyQuestions[10].prize
+                score1.innerHTML = score
+                //return score 
+            }
+        })
+    };
+});
+
+jsBtnD.addEventListener('click', () => {
+    choices.innerHTML = ''
+    let jsQueD = jeopardyQuestions[11].questions
+    queDisplay.textContent = jsQueD;
+    for (let i = 0; i < jeopardyQuestions[11].options.length; i++) {
+        //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
+        let jsMultChoD = document.createElement('div')
+        jsMultChoD.classList = 'optionsA'
+        jsMultChoD.innerHTML = jeopardyQuestions[11].options[i]
+        choices.appendChild( jsMultChoD);
+        backDisplay.appendChild(backBtn)
+        jsBtnD.style.backgroundColor = 'lightgray'
+        queDisplay.style.visibility = "visible"
+        backDisplay.style.visibility = "visible"
+        choices.style.visibility = "visible"
+        jsBtnD.disabled = true
+        jsMultChoD.addEventListener('click', () => {
+            if (jeopardyQuestions[11].options[i] === jeopardyQuestions[11].theRightAnswer) {
+                const audio = new Audio('audio/correct-answer.mp3');
+                audio.play();
+                score += jeopardyQuestions[11].prize
+                score1.innerHTML = score
+                return score
+            }
+            else {
+                const audio = new Audio('audio/wrong-answer.mp3');
+                audio.play();
+                //add wrong answer button
+                score -= jeopardyQuestions[11].prize
+                score1.innerHTML = score
+                //return score 
+            }
+        })
+    };
+});
+
+clBtnA.addEventListener('click', () => {
+    choices.innerHTML = ''
+    let clQueA = jeopardyQuestions[12].questions
+    queDisplay.textContent = clQueA;
+    for (let i = 0; i < jeopardyQuestions[12].options.length; i++) {
+        //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
+        let clMultChoA = document.createElement('div')
+        clMultChoA.classList = 'optionsA'
+        clMultChoA.innerHTML = jeopardyQuestions[12].options[i]
+        choices.appendChild( clMultChoA);
+        backDisplay.appendChild(backBtn)
+        clBtnA.style.backgroundColor = 'lightgray'
+        queDisplay.style.visibility = "visible"
+        backDisplay.style.visibility = "visible"
+        choices.style.visibility = "visible"
+        clBtnA.disabled = true
+        clMultChoA.addEventListener('click', () => {
+            if (jeopardyQuestions[12].options[i] === jeopardyQuestions[12].theRightAnswer) {
+                const audio = new Audio('audio/correct-answer.mp3');
+                audio.play();
+                score += jeopardyQuestions[12].prize
+                score1.innerHTML = score
+                return score
+            }
+            else {
+                const audio = new Audio('audio/wrong-answer.mp3');
+                audio.play();
+                //add wrong answer button
+                score -= jeopardyQuestions[12].prize
+                score1.innerHTML = score
+                //return score 
+            }
+        })
+    };
+});
 
 
 
