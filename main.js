@@ -37,40 +37,75 @@ const jeopardyQuestions = [{
 },
 {
     questions: 'What feature recently introduced in CSS 3 addresses issues with "floats"?',
+    options: ['Center Flagpoints', 'Flexbox', 'Flexpoints', 'FloatV2.0'],
     theRightAnswer: 'Flexbox',
     prize: 300
 },
 {
     questions: 'CSS is hard. What is one feature that makes it hard compared to other languages? ',
+    options: ['Lack of Case Examples', 'No Error Output', 'Inclusion of complex variable functions', 'Lack of documentation'],
     theRightAnswer: 'No Error Output',
     prize: 400
 },
 // javascript
 {
-    questions: 'Inside which HTML element do we put the JavaScript?',
-    theRightAnswer: 'script',
+    questions: 'Javascript is usually described as a " "-based language?',
+    options: ['Relational', 'COBOL', 'Object', 'Directional'],
+    theRightAnswer: 'Object',
     prize: 100
 },
 
 {
-    questions: 'How can you add a comment in a JavaScript?',
-    theRightAnswer: '//This is a comment',
+    questions: 'JSON is: ',
+    options: ['A Javascript engine', 'A text format readable by Javascript', 'A Javascript library', 'A Javascript function'],
+    therightAnswer: 'A text format readable by Javascript',
     prize: 200
 },
 {
-    questions: 'JavaScript is the same as Java.',
-    theRightAnswer: 'False',
+    
+    questions: 'Angular JS is an example of:',
+    options: ['A JS Framework', 'Server-side web applications', 'A JS library', 'An AJAX library'],
+    theRightAnswer: 'A JS Framework',
     prize: 300
 },
 {
-    questions: 'CSS is hard. What is one feature that makes it hard compared to other languages? ',
-    theRightAnswer: 'No Error Output',
+    questions: 'Which is a coding language or library not relevant to modern Javascript?',
+    options: ['Java', 'ECMAScript', 'Ajax', 'JQuery' ],
+    theRightAnswer: 'Java',
+    prize: 400
+},
+//command line
+{
+    questions: 'Which command to change the file location to another folder?',
+    options: ['Copy', 'mv', 'Move', 'Lace'],
+    theRightAnswer: 'mv',
+    prize: 100
+},
+
+{
+    questions: 'Which command is used to delete the directory?',
+    options: ['DEL', 'rm', 'rd', 'Rdmir'],
+    therightAnswer: 'rm',
+    prize: 200
+},
+{
+    
+    questions: 'Which command is used to change the file extension?',
+    options: ['Assoc', 'Ftype', 'Cacls', 'Attrib',],
+    theRightAnswer: 'Assoc',
+    prize: 300
+},
+{
+    questions: 'Which command to clean up the CMD screen?',
+    options: ['CD', 'Cls', 'Clean', 'Clear' ],
+    theRightAnswer: 'Cls',
     prize: 400
 },
 
 ];
 
 let score = 0;
+let finalScore = 0
 
 //const htmlBtnA = document.getElementById('htmlBtnA');
 const queDisplay = document.querySelector('.queDisplay');
@@ -79,6 +114,8 @@ const ansBtnDisplay = document.getElementById('ansBtnDisplay')
 const backDisplay = document.getElementById('backBtnDisplay')
 const htmlBtnA = document.getElementById('htmlBtnA');
 const htmlBtnB = document.getElementById('htmlBtnB');
+const htmlBtnC = document.getElementById('htmlBtnC');
+const htmlBtnD = document.getElementById('htmlBtnD');
 const choices = document.querySelector('.multiple-choice')
 const score1 = document.querySelector('span')
 console.log(ansDisplay);
@@ -118,13 +155,15 @@ htmlBtnA.addEventListener('click', () => {
         choices.style.visibility = "visible"
         htmlBtnA.disabled = true
         htmlMultChoA.addEventListener('click', () => {
+            
             if (jeopardyQuestions[0].options[i] === jeopardyQuestions[0].theRightAnswer) {
                 const audio = new Audio('audio/correct-answer.mp3');
                 audio.play();
                 score += jeopardyQuestions[0].prize
                 score1.innerHTML = score
-                return score
-            }
+                
+                
+            } 
             else {
                 const audio = new Audio('audio/wrong-answer.mp3');
                 audio.play();
@@ -133,10 +172,12 @@ htmlBtnA.addEventListener('click', () => {
                 score1.innerHTML = score
                 //return score 
             }
+            
         })
     };
 
 });
+
 
 //Back botton functionalities
 backBtn.addEventListener('click', () => {
@@ -146,8 +187,6 @@ backBtn.addEventListener('click', () => {
     choices.style.visibility = "hidden"
 });
 
-
-console.log('htmlBtnB', htmlBtnB);
 htmlBtnB.addEventListener('click', () => {
     choices.innerHTML = ''
     console.log('htmlBtnB clicked')
@@ -187,11 +226,78 @@ htmlBtnB.addEventListener('click', () => {
     };
 
 });
-queDisplay.style.visibility = "visible"
-backDisplay.style.visibility = "visible"
-choices.style.visibility = "visible"
 
+htmlBtnC.addEventListener('click', () => {
+    choices.innerHTML = ''
+    let htmlQueC = jeopardyQuestions[2].questions
+    queDisplay.textContent = htmlQueC;
+    for (let i = 0; i < jeopardyQuestions[2].options.length; i++) {
+        //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
+        let htmlMultChoC = document.createElement('div')
+        htmlMultChoC.classList = 'optionsA'
+        htmlMultChoC.innerHTML = jeopardyQuestions[2].options[i]
+        choices.appendChild(htmlMultChoC);
+        backDisplay.appendChild(backBtn)
+        htmlBtnC.style.backgroundColor = 'lightgray'
+        queDisplay.style.visibility = "visible"
+        backDisplay.style.visibility = "visible"
+        choices.style.visibility = "visible"
+        htmlBtnC.disabled = true
+        htmlMultChoC.addEventListener('click', () => {
+            if (jeopardyQuestions[2].options[i] === jeopardyQuestions[2].theRightAnswer) {
+                const audio = new Audio('audio/correct-answer.mp3');
+                audio.play();
+                score += jeopardyQuestions[2].prize
+                score1.innerHTML = score
+                return score
+            }
+            else {
+                const audio = new Audio('audio/wrong-answer.mp3');
+                audio.play();
+                //add wrong answer button
+                score -= jeopardyQuestions[2].prize
+                score1.innerHTML = score
+                //return score 
+            }
+        })
+    };
+});
 
+htmlBtnD.addEventListener('click', () => {
+    choices.innerHTML = ''
+    let htmlQueD = jeopardyQuestions[3].questions
+    queDisplay.textContent = htmlQueD;
+    for (let i = 0; i < jeopardyQuestions[3].options.length; i++) {
+        let htmlMultChoD = document.createElement('div')
+        htmlMultChoD.classList = 'optionsA'
+        htmlMultChoD.innerHTML = jeopardyQuestions[3].options[i]
+        choices.appendChild(htmlMultChoD);
+        backDisplay.appendChild(backBtn)
+        htmlBtnD.style.backgroundColor = 'lightgray'
+        queDisplay.style.visibility = "visible"
+        backDisplay.style.visibility = "visible"
+        choices.style.visibility = "visible"
+        htmlBtnD.disabled = true
+        htmlMultChoD.addEventListener('click', () => {
+            if (jeopardyQuestions[3].options[i] === jeopardyQuestions[3].theRightAnswer) {
+                const audio = new Audio('audio/correct-answer.mp3');
+                audio.play();
+                score += jeopardyQuestions[3].prize
+                score1.innerHTML = score
+                return score
+            }
+            else {
+                const audio = new Audio('audio/wrong-answer.mp3');
+                audio.play();
+                //add wrong answer button
+                score -= jeopardyQuestions[3].prize
+                score1.innerHTML = score
+                //return score 
+            }
+        })
+    };
+
+});
 
 
 
