@@ -120,6 +120,7 @@ const cssBtnA = document.getElementById('cssBtnA');
 const cssBtnB = document.getElementById('cssBtnB')
 const cssBtnC = document.getElementById('cssBtnC')
 const cssBtnD = document.getElementById('cssBtnD')
+const jsBtnA = document.getElementById('jsBtnA')
 const choices = document.querySelector('.multiple-choice')
 const score1 = document.querySelector('span')
 console.log(ansDisplay);
@@ -411,27 +412,27 @@ cssBtnC.addEventListener('click', () => {
     };
 });
 
-cssBtnC.addEventListener('click', () => {
+cssBtnD.addEventListener('click', () => {
     choices.innerHTML = ''
-    let cssQueC = jeopardyQuestions[6].questions
-    queDisplay.textContent = cssQueC;
-    for (let i = 0; i < jeopardyQuestions[6].options.length; i++) {
+    let cssQueD = jeopardyQuestions[7].questions
+    queDisplay.textContent = cssQueD;
+    for (let i = 0; i < jeopardyQuestions[7].options.length; i++) {
         //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
-        let cssMultChoC = document.createElement('div')
-        cssMultChoC.classList = 'optionsA'
-        cssMultChoC.innerHTML = jeopardyQuestions[6].options[i]
-        choices.appendChild(cssMultChoC);
+        let cssMultChoD = document.createElement('div')
+        cssMultChoD.classList = 'optionsA'
+        cssMultChoD.innerHTML = jeopardyQuestions[7].options[i]
+        choices.appendChild(cssMultChoD);
         backDisplay.appendChild(backBtn)
-        cssBtnC.style.backgroundColor = 'lightgray'
+        cssBtnD.style.backgroundColor = 'lightgray'
         queDisplay.style.visibility = "visible"
         backDisplay.style.visibility = "visible"
         choices.style.visibility = "visible"
-        cssBtnC.disabled = true
-        cssMultChoC.addEventListener('click', () => {
-            if (jeopardyQuestions[6].options[i] === jeopardyQuestions[6].theRightAnswer) {
+        cssBtnD.disabled = true
+        cssMultChoD.addEventListener('click', () => {
+            if (jeopardyQuestions[7].options[i] === jeopardyQuestions[7].theRightAnswer) {
                 const audio = new Audio('audio/correct-answer.mp3');
                 audio.play();
-                score += jeopardyQuestions[6].prize
+                score += jeopardyQuestions[7].prize
                 score1.innerHTML = score
                 return score
             }
@@ -439,7 +440,7 @@ cssBtnC.addEventListener('click', () => {
                 const audio = new Audio('audio/wrong-answer.mp3');
                 audio.play();
                 //add wrong answer button
-                score -= jeopardyQuestions[6].prize
+                score -= jeopardyQuestions[7].prize
                 score1.innerHTML = score
                 //return score 
             }
@@ -447,6 +448,41 @@ cssBtnC.addEventListener('click', () => {
     };
 });
 
+cssBtnD.addEventListener('click', () => {
+    choices.innerHTML = ''
+    let cssQueD = jeopardyQuestions[7].questions
+    queDisplay.textContent = cssQueD;
+    for (let i = 0; i < jeopardyQuestions[7].options.length; i++) {
+        //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
+        let cssMultChoD = document.createElement('div')
+        cssMultChoD.classList = 'optionsA'
+        cssMultChoD.innerHTML = jeopardyQuestions[7].options[i]
+        choices.appendChild(cssMultChoD);
+        backDisplay.appendChild(backBtn)
+        cssBtnD.style.backgroundColor = 'lightgray'
+        queDisplay.style.visibility = "visible"
+        backDisplay.style.visibility = "visible"
+        choices.style.visibility = "visible"
+        cssBtnD.disabled = true
+        cssMultChoD.addEventListener('click', () => {
+            if (jeopardyQuestions[7].options[i] === jeopardyQuestions[7].theRightAnswer) {
+                const audio = new Audio('audio/correct-answer.mp3');
+                audio.play();
+                score += jeopardyQuestions[7].prize
+                score1.innerHTML = score
+                return score
+            }
+            else {
+                const audio = new Audio('audio/wrong-answer.mp3');
+                audio.play();
+                //add wrong answer button
+                score -= jeopardyQuestions[7].prize
+                score1.innerHTML = score
+                //return score 
+            }
+        })
+    };
+});
 
 
 
