@@ -127,6 +127,7 @@ const jsBtnD = document.getElementById('jsBtnD')
 const clBtnA = document.getElementById('clBtnA');
 const clBtnB = document.getElementById('clBtnB');
 const clBtnC = document.getElementById('clBtnC')
+const clBtnD = document.getElementById('clBtnD')
 const choices = document.querySelector('.multiple-choice')
 const score1 = document.querySelector('span')
 console.log(ansDisplay);
@@ -699,6 +700,42 @@ clBtnC.addEventListener('click', () => {
                 audio.play();
                 //add wrong answer button
                 score -= jeopardyQuestions[14].prize
+                score1.innerHTML = score
+                //return score 
+            }
+        })
+    };
+});
+
+clBtnD.addEventListener('click', () => {
+    choices.innerHTML = ''
+    let clQueD = jeopardyQuestions[15].questions
+    queDisplay.textContent = clQueD;
+    for (let i = 0; i < jeopardyQuestions[15].options.length; i++) {
+        //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
+        let clMultChoD = document.createElement('div')
+        clMultChoD.classList = 'optionsA'
+        clMultChoD.innerHTML = jeopardyQuestions[15].options[i]
+        choices.appendChild( clMultChoD);
+        backDisplay.appendChild(backBtn)
+        clBtnD.style.backgroundColor = 'lightgray'
+        queDisplay.style.visibility = "visible"
+        backDisplay.style.visibility = "visible"
+        choices.style.visibility = "visible"
+        clBtnD.disabled = true
+        clMultChoD.addEventListener('click', () => {
+            if (jeopardyQuestions[15].options[i] === jeopardyQuestions[15].theRightAnswer) {
+                const audio = new Audio('audio/correct-answer.mp3');
+                audio.play();
+                score += jeopardyQuestions[15].prize
+                score1.innerHTML = score
+                return score
+            }
+            else {
+                const audio = new Audio('audio/wrong-answer.mp3');
+                audio.play();
+                //add wrong answer button
+                score -= jeopardyQuestions[15].prize
                 score1.innerHTML = score
                 //return score 
             }
