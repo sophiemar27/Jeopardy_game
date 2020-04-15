@@ -125,6 +125,7 @@ const jsBtnB = document.getElementById('jsBtnB');
 const jsBtnC = document.getElementById('jsBtnC');
 const jsBtnD = document.getElementById('jsBtnD')
 const clBtnA = document.getElementById('clBtnA');
+const clBtnB = document.getElementById('clBtnB')
 const choices = document.querySelector('.multiple-choice')
 const score1 = document.querySelector('span')
 console.log(ansDisplay);
@@ -625,6 +626,42 @@ clBtnA.addEventListener('click', () => {
                 audio.play();
                 //add wrong answer button
                 score -= jeopardyQuestions[12].prize
+                score1.innerHTML = score
+                //return score 
+            }
+        })
+    };
+});
+
+clBtnB.addEventListener('click', () => {
+    choices.innerHTML = ''
+    let clQueB = jeopardyQuestions[13].questions
+    queDisplay.textContent = clQueB;
+    for (let i = 0; i < jeopardyQuestions[13].options.length; i++) {
+        //et htmlChoicesA = jeopardyQuestions[0].options.join('<br>')
+        let clMultChoB = document.createElement('div')
+        clMultChoB.classList = 'optionsA'
+        clMultChoB.innerHTML = jeopardyQuestions[13].options[i]
+        choices.appendChild( clMultChoB);
+        backDisplay.appendChild(backBtn)
+        clBtnB.style.backgroundColor = 'lightgray'
+        queDisplay.style.visibility = "visible"
+        backDisplay.style.visibility = "visible"
+        choices.style.visibility = "visible"
+        clBtnB.disabled = true
+        clMultChoB.addEventListener('click', () => {
+            if (jeopardyQuestions[13].options[i] === 'rm') {
+                const audio = new Audio('audio/correct-answer.mp3');
+                audio.play();
+                score += jeopardyQuestions[13].prize
+                score1.innerHTML = score
+                return score
+            }
+            else {
+                const audio = new Audio('audio/wrong-answer.mp3');
+                audio.play();
+                //add wrong answer button
+                score -= jeopardyQuestions[13].prize
                 score1.innerHTML = score
                 //return score 
             }
